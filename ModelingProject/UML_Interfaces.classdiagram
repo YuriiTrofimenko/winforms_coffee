@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="b9d3e0a7-f3fb-499a-b3b0-99c3c7d85035" name="UML_Interfaces" linkedPackageId="3abef279-dde6-47d1-a364-df3ccd71f3ce" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b62428b2-9c43-4e7c-9ef0-35f84171915e" name="StartControl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="375b74a0-8b84-43e7-9ccf-62dcf6f056cc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7e4e9c23-7cdd-4e32-bc64-8dd795cf26ae" name="Login" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="22ec01e2-c851-4537-b9b2-a52b3a63194e" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="2b4ca909-9e02-4fb8-8da0-d9529e59ee6f" name="IActivControl" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="806fc6d6-4668-49c4-8a31-685dae81c097" />
+        <suppliersInternal>
+          <dependency Id="9ef0f5c4-5c5b-47d2-b939-d12fed9f8ccb">
+            <classMoniker Id="b62428b2-9c43-4e7c-9ef0-35f84171915e" LastKnownName="StartControl" />
+            <elementDefinition Id="133fedea-0f59-4b62-81f9-e915a92248d0" />
+          </dependency>
+          <dependency Id="858fc739-006d-4d42-9087-42659554d4d9">
+            <classMoniker Id="33b71a79-7d28-46a4-8580-9ab1233e8a62" LastKnownName="Settings" />
+            <elementDefinition Id="516cdf00-2f5a-49bf-ad64-2dc2172b824c" />
+          </dependency>
+          <dependency Id="3445efc0-be8f-4328-b09d-b0a1992bbc9b">
+            <classMoniker Id="7e4e9c23-7cdd-4e32-bc64-8dd795cf26ae" LastKnownName="Login" />
+            <elementDefinition Id="fbbf7740-6601-4664-bf25-35577b78fa9f" />
+          </dependency>
+          <dependency Id="f3978571-619a-4de9-9ab5-c619b661627a">
+            <classMoniker Id="6ff994cc-7b47-4354-9967-9412579bad8c" LastKnownName="CustomSelect" />
+            <elementDefinition Id="f7946b17-1882-40f4-9dea-a49abf1144c7" />
+          </dependency>
+          <dependency Id="a1a58179-5a6b-4961-8e03-6e629431413a">
+            <classMoniker Id="f1ac4407-8baa-4afd-a9a5-ff91c63e6e6c" LastKnownName="Payment" />
+            <elementDefinition Id="d90c1579-7a2b-4bcc-bed0-8fd6a06dfd22" />
+          </dependency>
+          <dependency Id="451ac2d0-46df-4b79-bbf4-55594c9465f1">
+            <classMoniker Id="fb27c5b9-40a1-46a4-826e-20a929a45297" LastKnownName="Finish" />
+            <elementDefinition Id="e5b00c1e-cc3b-44c6-a9de-ef325924f6df" />
+          </dependency>
+        </suppliersInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="33b71a79-7d28-46a4-8580-9ab1233e8a62" name="Settings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bce61d83-d229-4655-9a2b-08427db091f3" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6ff994cc-7b47-4354-9967-9412579bad8c" name="CustomSelect" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1dfd3acd-76f2-44d7-a6ab-05eb6ecc35bf" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f1ac4407-8baa-4afd-a9a5-ff91c63e6e6c" name="Payment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fc8f3d45-9969-4098-88c3-8a21b9b91b21" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fb27c5b9-40a1-46a4-826e-20a929a45297" name="Finish" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5c740196-b237-4768-a1ef-e9e71627f88b" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="c9278c7f-e835-445f-9c35-25a14d9714b1" name="IDeadMouse" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a26ffe50-c4ae-44e3-adec-e14a0f6c113f" />
+        <suppliersInternal>
+          <dependency Id="00144770-8b73-4312-b99e-1cb012cabc1b">
+            <classMoniker Id="6ff994cc-7b47-4354-9967-9412579bad8c" LastKnownName="CustomSelect" />
+            <elementDefinition Id="b1a8dfa3-5b57-4c91-b8f8-33ad09948fe1" />
+          </dependency>
+          <dependency Id="a4959ec7-17dd-49e2-aef9-2c726b37f7b5">
+            <classMoniker Id="f1ac4407-8baa-4afd-a9a5-ff91c63e6e6c" LastKnownName="Payment" />
+            <elementDefinition Id="e70fc37f-2ee9-4759-a599-10a4c74e447c" />
+          </dependency>
+          <dependency Id="60801abd-0f6f-4e2e-9529-e59c96bb9f35">
+            <classMoniker Id="fb27c5b9-40a1-46a4-826e-20a929a45297" LastKnownName="Finish" />
+            <elementDefinition Id="c8bad655-81b1-4c8f-a436-d5b33758a8f1" />
+          </dependency>
+        </suppliersInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="42d5b2e8-0323-452c-b3a1-be4e81437fef" name="ISettingsIsRead" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b061a391-b3b7-4db5-8a6d-71087f271177" />
+        <suppliersInternal>
+          <dependency Id="7f2c178f-fd6a-48a4-82fa-e8417ce266f9">
+            <classMoniker Id="6ff994cc-7b47-4354-9967-9412579bad8c" LastKnownName="CustomSelect" />
+            <elementDefinition Id="1225c462-d0aa-465c-9133-75da1cf2711c" />
+          </dependency>
+        </suppliersInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="3abef279-dde6-47d1-a364-df3ccd71f3ce" name="ModelingProject">
+    <elementDefinition Id="34536f32-d4e3-401f-b44f-ba57c5996c97" />
+    <profileInstances>
+      <packageHasProfileInstances Id="5450b4bf-9aad-4349-85b0-2365233c41ce">
+        <profileInstance Id="3927132c-1bb5-4f7f-a417-f4aeeccc85f4" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7a03141c-3594-44bc-9d16-be93683812eb">
+        <profileInstance Id="8e4882da-ff03-4bdf-a975-d72c2ed8bdd8" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

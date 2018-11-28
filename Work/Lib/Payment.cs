@@ -9,11 +9,13 @@ using System.Windows.Forms;
 
 namespace Work.Lib
 {
-    public partial class Payment : UserControl, IActivControl, IDeadMouse
+    public partial class Payment : UserControl, IActivControl, IDeadMouse, IGoHome
     {
         public event EventHandler<WorkEventArgs> ActivControl = delegate { };
         public event EventHandler DeadMouse = delegate { };
         public event EventHandler ProductIsPaid = delegate { };
+        public event EventHandler GoHomeEvent = delegate { };
+
         DeadMouseTimer dmTimer;
 
         public Payment()
@@ -55,8 +57,9 @@ namespace Work.Lib
         {
             dmTimer.Stop();     // Прекращение работы таймера DeadMouse
             dmTimer.Dispose();  // Освобождение ресурсов
-            DeadMouse(this, new EventArgs());   // Возврат на старновый контрол,
-                                                // путем вызова события DeadMouse
+                                //DeadMouse(this, new EventArgs());   // Возврат на старновый контрол,
+                                // путем вызова события DeadMouse
+            GoHomeEvent(this, EventArgs.Empty);
         }
 
         private void btnSimulation_Click(object sender, EventArgs e)

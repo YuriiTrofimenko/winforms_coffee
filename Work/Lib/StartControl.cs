@@ -13,6 +13,10 @@ namespace Work.Lib
 {
     public partial class StartControl : UserControl, IActivControl
     {
+        //Цвет элемента управления по умолчанию равен
+        //стандартному цвету фона окна
+        public Color BackgroundColor { get; set; } = SystemColors.Window;
+        //События только объявляются, а делегаты событий не создаются преждевременно
         public event EventHandler<WorkEventArgs> ActivControl;
         public event EventHandler AdminClick;
         public event EventHandler UserClick; 
@@ -48,9 +52,10 @@ namespace Work.Lib
 
         public void Start(object sender, EventArgs e)
         {   // Запускаем событие (ActivControl), в качестве параметра цвет фона
-            ActivControl?.Invoke(this, new WorkEventArgs(MainForm.Settings.BackgroundColor));
+            //Вызов метода-обработчика события только если он есть
+            ActivControl?.Invoke(this, new WorkEventArgs(BackgroundColor));
         }
-
+        //Отписка обработчика кликов от событий, если элемент управления удален
         private void StartControl_ControlRemoved(object sender, ControlEventArgs e)
         {
             picPB.Click -= new EventHandler(picPB_Click);

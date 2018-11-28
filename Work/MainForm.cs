@@ -34,7 +34,8 @@ namespace Work
         private void MainForm_Load(object sender, EventArgs e)
         {
             Settings = new WorkSettings();  // Создание экземпляра настроек
-    
+            startControl.BackgroundColor = Settings.BackgroundColor;
+
             // Добавление созданных контролов на главную форму
             this.Controls.Add(startControl);
             this.Controls.Add(login);
@@ -59,8 +60,13 @@ namespace Work
 
                 var dm = ctrl as IDeadMouse;    // Если контрол
                 if (dm != null)// реализует интерфейс IDeadMouse, подписываемся
-                                                // на событие DeadMouse
-                    dm.DeadMouse += new EventHandler(startControl.Start);
+                               // на событие DeadMouse
+                { dm.DeadMouse += new EventHandler(On_Dead_Mouse); }
+
+                if (ctrl is IGoHome)
+                {
+                    ((IGoHome)ctrl).GoHomeEvent += new EventHandler(startControl.Start);
+                }
 
                 var sr = ctrl as ISettingsIsRead;
                 if (sr != null)
@@ -107,5 +113,41 @@ namespace Work
             this.BackColor = e.BackColor;       // Цвет фона формы
         }
 
+        // Обработчик истечения первого таймаута истечения времени
+        //ожидания действий пользователя
+        private void On_Dead_Mouse(object sender, EventArgs ev) {
+            //Запуск второго таймера и вопрос к пользователю - здесь ли он
+            var secondTimer = SetUpSecondTimer(sender, ev);
+            var confirmResult =
+                MessageBox.Show("Are you still here?",
+                                     "",
+                                     MessageBoxButtons.OK
+                                );
+            //Пользователь хочет продолжить работу
+            if (confirmResult == DialogResult.OK)
+            {
+                secondTimer.Stop();
+                secondTimer.Dispose();
+                DeadMouseEventArgs dmEv = (DeadMouseEventArgs)ev;
+                //Рестарт первого таймера соответствующего контрола
+                ((DeadMouseTimer)dmEv.Sender).Restart();
+            }
+            
+        }
+        //Если пользователь не реагирует - при окончании второго таймаута
+        //эмулируется нажатие клавиши "Отмена" на клавиатуре,
+        //и происходит переход на первый экран
+        private Timer SetUpSecondTimer(object sender, EventArgs ev) {
+            var secondTimer = new Timer();
+            secondTimer.Interval = 5000;
+            secondTimer.Tick += (s, a) => {
+                secondTimer.Stop();
+                secondTimer.Dispose();
+                SendKeys.SendWait("{Esc}");
+                startControl.Start(sender, ev);
+            };
+            secondTimer.Start();
+            return secondTimer;
+        }
     }
 }

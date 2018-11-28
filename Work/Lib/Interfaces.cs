@@ -41,6 +41,15 @@ namespace Work.Lib
     }
 
     /// <summary>
+    /// Предоставляет возможность автоматической подписки на событие GoHome,
+    /// и определяет работу таймера DeadMouse на реализующем контроле
+    /// </summary>
+    public interface IGoHome
+    {
+        event EventHandler GoHomeEvent;
+    }
+
+    /// <summary>
     /// Предоставляет возможность автоматической подписки контрола на событие
     /// WorkSettingsIsRead, для выполнения метода SettingsIsRead 
     /// при наступлении этого события

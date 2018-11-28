@@ -46,7 +46,8 @@ namespace Work.Lib
 
         void timer_Tick(object sender, EventArgs e)
         {   // Если есть подписка - генерируем событие DeadMouse
-            if (DeadMouse != null) DeadMouse(this, new EventArgs());
+            // В аргументы добавляется ссылка на тот контрол, который вызвал событие первого таймаута
+            if (DeadMouse != null) DeadMouse(this, new DeadMouseEventArgs() { Sender = this });
             this.Stop();            // Остановка таймера неактивной мыши  
         }
 
@@ -56,6 +57,12 @@ namespace Work.Lib
             timer.Tick -= new EventHandler(timer_Tick);
             DeadMouse -= new EventHandler(eventHandler);
             ctrl.MouseClick -= new MouseEventHandler(ctrl_MouseClick); 
+        }
+
+        public void Restart() {
+
+            timer.Enabled = false;
+            timer.Enabled = true;
         }
 
         // Реализация интерфейса IDisposable (освобождение ресурсов)

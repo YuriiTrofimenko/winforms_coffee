@@ -105,11 +105,12 @@ namespace Work.Lib
                     backgroundColor = (Color)binFormat.Deserialize(fStream);
                 }
                 // Вызов события удачного завершения чтения
-                WorkSettingsIsRead(this, new EventArgs());
+                WorkSettingsIsRead(this, EventArgs.Empty);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Ошибка чтения данных из файла!", "Чтение настроек");
+                //MessageBox.Show("Ошибка чтения данных из файла!", "Чтение настроек");
+                MessageBox.Show(ex.Message);
             }
         }
 

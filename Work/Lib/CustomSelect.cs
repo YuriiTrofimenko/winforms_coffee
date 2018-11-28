@@ -10,10 +10,11 @@ using System.Windows.Forms;
 namespace Work.Lib
 {
     public partial class CustomSelect : UserControl, IActivControl, 
-                                        IDeadMouse, ISettingsIsRead
+                                        IDeadMouse, ISettingsIsRead, IGoHome
     {
         public event EventHandler<WorkEventArgs> ActivControl = delegate { };
         public event EventHandler DeadMouse = delegate { };
+        public event EventHandler GoHomeEvent = delegate { };
         public event EventHandler ProductSelected = delegate { };
         DeadMouseTimer dmTimer;
 
@@ -191,8 +192,9 @@ namespace Work.Lib
         {
             dmTimer.Stop();     // Прекращение работы таймера DeadMouse
             dmTimer.Dispose();  // Освобождение ресурсов
-            DeadMouse(this, new EventArgs());   // Возврат на стартовый контрол,
-                                                // путем вызова события DeadMouse
+                                //DeadMouse(this, new EventArgs());   // Возврат на стартовый контрол,
+                                // путем вызова события DeadMouse
+            GoHomeEvent(this, EventArgs.Empty);
         }
 
         // Обработчик клика кнопки (Оплата)
